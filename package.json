@@ -1,79 +1,89 @@
 {
   "name": "react-slideable",
-  "version": "1.1.1",
-  "description": "A component for displaying data/image lists with dynamic items' width. Has an ability to create looped list.",
+  "version": "2.0.1",
+  "description": "A lightweight React carousel and slider with smooth touch dragging, responsive slides, infinite loops, autoplay and CSS styling. TypeScript ready; zero runtime dependencies.",
+  "homepage": "https://zilijonas.github.io/react-slideable/",
+  "bugs": {
+    "url": "https://github.com/zilijonas/react-slideable/issues"
+  },
   "author": "zilijonas",
   "license": "MIT",
-  "repository": "zilijonas/react-slideable",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zilijonas/react-slideable.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./dist/index.css": "./dist/index.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
   "engines": {
-    "node": ">=10"
+    "node": ">=22.13"
   },
   "keywords": [
     "react",
-    "sliding",
+    "carousel",
     "slider",
-    "list",
-    "scroll",
-    "loop",
+    "react-carousel",
+    "react-slider",
+    "responsive-carousel",
+    "image-carousel",
+    "touch-slider",
+    "swipe",
+    "drag",
+    "autoplay",
+    "infinite-carousel",
+    "typescript",
+    "css",
+    "accessibility",
+    "keyboard-navigation",
+    "zero-dependencies",
+    "scroll-snap",
+    "infinite",
     "slideable"
   ],
   "scripts": {
-    "mb": "microbundle --jsx 'React.createElement' --jsxImportSource react --globals react/jsx-runtime=jsx --format modern,cjs",
-    "build": "yarn run mb",
-    "start": "yarn run mb watch --no-compress",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "build": "tsup src/index.tsx --format esm,cjs --dts --minify --clean --external react --external react/jsx-runtime && node scripts/copy-css.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "demo:build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "check": "npm run typecheck && npm test && npm run build && npm run demo:build && npm run test:browser",
+    "prepublishOnly": "npm run check"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
-  },
-  "dependencies": {
-    "smoothscroll-polyfill": "^0.4.4"
+    "react": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.10.2",
-    "@types/react": "^17.0.27",
-    "@types/react-dom": "^17.0.9",
-    "@types/smoothscroll-polyfill": "^0.3.1",
-    "@typescript-eslint/eslint-plugin": "^4.32.0",
-    "@typescript-eslint/parser": "^4.32.0",
-    "babel-eslint": "^10.1.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-config-standard-react": "^11.0.1",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-standard": "^5.0.0",
-    "gh-pages": "^3.2.3",
-    "microbundle": "^0.13.3",
-    "microbundle-crl": "^0.13.11",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.4.1",
-    "prettier-plugin-organize-imports": "^2.3.4",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3",
-    "typescript": "^4.4.3",
-    "yarn-upgrade-all": "^0.5.4"
-  },
-  "files": [
-    "dist"
-  ]
+    "@playwright/test": "^1.63.0",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^26.0.0",
+    "@types/prismjs": "^1.26.6",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "esbuild": "^0.28.2",
+    "jsdom": "^29.0.0",
+    "prettier": "^3.9.9",
+    "prismjs": "^1.30.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
+  }
 }

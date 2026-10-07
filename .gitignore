@@ -7,6 +7,10 @@ node_modules
 # builds
 build
 dist
+demo-dist
+test-results
+playwright-report
+output
 .rpt2_cache
 
 # misc

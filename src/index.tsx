@@ -1,5 +1,3 @@
-import smoothscroll from 'smoothscroll-polyfill';
-
-smoothscroll.polyfill();
-
-export * from './lib';
+'use client';
+export { Slideable } from './lib/Slideable';
+export type { SlidesPerView, SlideableProps, SlideableHandle, SlideDirection } from './lib/types';

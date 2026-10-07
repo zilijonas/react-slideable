@@ -1,0 +1,18 @@
+.css-fixture.react-slideable {
+  width: 500px;
+  --react-slideable-gap: 12px;
+}
+.css-fixture .react-slideable__slide {
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+}
+.css-fixture .react-slideable__button--next {
+  border-radius: 6px;
+  background: rgb(220, 232, 208);
+}
+@media (min-width: 900px) {
+  .css-fixture.react-slideable {
+    --react-slideable-gap: 32px;
+  }
+}

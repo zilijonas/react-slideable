@@ -1,0 +1,18 @@
+# react-slideable
+
+> A lightweight React carousel and slider with smooth touch and mouse dragging, responsive slides, infinite loops, autoplay and CSS styling. MIT licensed, zero runtime dependencies, React 18 and 19, TypeScript types included.
+
+## Documentation
+
+- [README and API reference](https://github.com/zilijonas/react-slideable/blob/master/README.md): installation, props, CSS classes, examples and limitations.
+- [npm package](https://www.npmjs.com/package/react-slideable): install with `npm install react-slideable`.
+- [Interactive demo](https://zilijonas.github.io/react-slideable/): photos, full-width looping logos, responsive cards and editable controls.
+- [Source and issues](https://github.com/zilijonas/react-slideable): implementation, tests and bug reports.
+
+## Quick setup
+
+Import `{ Slideable }` from `react-slideable` and `react-slideable/dist/index.css`.
+Pass React nodes to `items`. Add `looped` for infinite loops. `autoplay` accepts an interval in milliseconds; `controls={false}` hides arrows.
+`slidesPerView` accepts a number or upper-bound carousel-container-width breakpoints, e.g. `{ 480: 1, 768: 2, max: 3 }`. Keys accept any pixel width.
+Style public `.react-slideable` and `.react-slideable__*` classes. Set `--react-slideable-gap` on the root for CSS-responsive spacing; the optional `gap` prop overrides it. Default gap is zero.
+Keyboard navigation, reduced motion and autoplay pause on hover, focus and drag are supported. Loops use fixed buffer bands, not virtualization. Buffer content is inert and hidden from assistive technology.
